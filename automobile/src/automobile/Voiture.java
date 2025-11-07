@@ -94,7 +94,7 @@ public class Voiture {
     
     // Déclaration de la méthode afficher
     public void afficher () {
-        System.out.println("Voiture Numéro " + nombreVoiture + " de marque " + this.marque + " de modèle " + 
+        System.out.println("Voiture Numéro " + this.nombreVoiture + " de marque " + this.marque + " de modèle " +
                 this.modele + " de couleur " + this.couleur + ". Numéro de Chassis est " + this.numeroDeChassis + 
                 " et de nombre de place " + this.nombreDePlaces + "\n");
     }

@@ -42,8 +42,6 @@ public class Automobile {
         System.out.println(voiture4.estEgal(voiture4, voiture3));
         // Conclusion : La methode estEgal compare la voiture dans sa totalité avec les autres variables alors que
         // le comparrateur == permet de comparer le numeroDeChassis seul
-        
-        
     }
     
 }
