@@ -31,6 +31,15 @@ public class ParseurCommande {
             case "PARCOURS-AFFICHER" :
                 commande = new CmParcoursAfficher();
                 break;
+            case "ETUDIANT-CREER" :
+                commande = new CmEtudiantCreer();
+                break;
+            case "ETUDIANT-AFFICHER" :
+                commande = new CmEtudiantAfficher();
+                break;
+            case "ET-PC-IN" :
+                commande = new CmParcoursInscrireEtudiant();
+                break;
             default :
                 commande = new CmInconnue();
         }

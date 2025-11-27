@@ -34,6 +34,16 @@ public class Parcours {
         this(sequence, libelle);
         sequence = sequence + 1;
     }
+
+    public static Parcours getByLibelle(String libelle) {
+        if(libelle == null) return null;
+        for (Parcours p : liste) {
+            if (p.libelle != null && p.libelle.equalsIgnoreCase(libelle)) {
+                return p;
+            }
+        }
+        return null;
+    }
     
     public static String getHeader(){
         return "N° \t Identifiant \t Libelle";
@@ -43,7 +53,7 @@ public class Parcours {
         int i = 1;
         System.out.println(getHeader());
         for(Parcours p : liste){
-            System.out.println(i + "\t" + p);
+            System.out.println(i + "\t" + p.id + "\t\t" + p.libelle);
             i++;
         }
     }
@@ -61,7 +71,8 @@ public class Parcours {
         int i = 1;
         System.out.println(Etudiant.getHeader());
         for(Etudiant etudiant : this.etudiants){
-            System.out.println(i + "\t" + etudiant);
+            System.out.println(i + "\t" + etudiant.getnumeroCarte() + "\t\t\t" +etudiant.getNom() + "\t" +
+                    etudiant.getPrenom() + "\t\t\t" + etudiant.getDateNaissance());
             i++;
         }
     }

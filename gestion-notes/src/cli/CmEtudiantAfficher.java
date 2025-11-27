@@ -5,27 +5,26 @@
 package cli;
 
 import metier.Etudiant;
-import metier.Parcours;
 
 /**
  *
  * @author tkossi
  */
-public class CmParcoursInscrireEtudiant extends Commande {
-    private String libelle;
-    private int numeroCarte;
+public class CmEtudiantAfficher extends Commande {
+    private int indice;
 
     @Override
     public void executer() {
-        Parcours p = Parcours.getByLibelle(this.libelle);
-        Etudiant e = Etudiant.getByNumeroCarte(this.numeroCarte);
-        p.inscrireEtudiant(e);
+        if (indice != 0){
+            Etudiant.afficherindice(indice);
+        } else {
+            Etudiant.afficherTout();
+        }
     }
 
     @Override
     public void setPararmetres(String[] parametres) {
-        this.libelle = parametres[0];
-        this.numeroCarte = Integer.parseInt(parametres[1]);
+        this.indice = Integer.parseInt(parametres[0]);
     }
     
 }
