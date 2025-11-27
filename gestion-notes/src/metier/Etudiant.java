@@ -15,7 +15,6 @@ import java.util.List;
 public class Etudiant {
 
     private static List<Etudiant> liste = new ArrayList<>();
-    private int id;
     private String nom;
     private String prenom;
     private LocalDate dateNaissance;
@@ -75,6 +74,16 @@ public class Etudiant {
             }
         }
         return null;
+    }
+
+    public static boolean supprimer(int numeroCarte) {
+        Etudiant e = getByNumeroCarte(numeroCarte);
+        if (e == null) return false;
+        // If student is in a parcours, remove from it first
+        if (e.getParcours() != null) {
+            e.getParcours().desinscrireEtudiant(e);
+        }
+        return liste.remove(e);
     }
 
     public float getMoyenne() {

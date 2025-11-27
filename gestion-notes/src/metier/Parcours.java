@@ -62,6 +62,13 @@ public class Parcours {
         etudiant.setParcours(this);
         this.etudiants.add(etudiant);
     }
+
+    public void desinscrireEtudiant(Etudiant etudiant) {
+        if (etudiant == null) return;
+        if (this.etudiants.remove(etudiant)) {
+            etudiant.setParcours(null);
+        }
+    }
     
     public void afficher(){
         System.out.println(this);

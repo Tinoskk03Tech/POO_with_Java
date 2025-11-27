@@ -37,6 +37,12 @@ public class ParseurCommande {
             case "ETUDIANT-AFFICHER" :
                 commande = new CmEtudiantAfficher();
                 break;
+            case "ETUDIANT-MODIFIER" :
+                commande = new CmEtudiantModifier();
+                break;
+            case "ETUDIANT-SUPPRIMER" :
+                commande = new CmEtudiantSupprimer();
+                break;
             case "ET-PC-IN" :
                 commande = new CmParcoursInscrireEtudiant();
                 break;

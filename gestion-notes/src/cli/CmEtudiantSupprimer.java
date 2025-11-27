@@ -4,20 +4,27 @@
  */
 package cli;
 
+import metier.Etudiant;
+
 /**
- *
- * @author tkossi
+ * Commande pour supprimer un etudiant par numero de carte
  */
 public class CmEtudiantSupprimer extends Commande {
+    private int numeroCarte;
 
     @Override
     public void executer() {
-        
+        if (this.numeroCarte == 0) {
+            return;
+        }
+        Etudiant.supprimer(this.numeroCarte);
     }
 
     @Override
     public void setPararmetres(String[] parametres) {
-        
+        if (parametres != null && parametres.length > 0) {
+            this.numeroCarte = Integer.parseInt(parametres[0]);
+        }
     }
     
 }
