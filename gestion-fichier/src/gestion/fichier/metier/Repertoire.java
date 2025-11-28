@@ -13,6 +13,14 @@ import java.util.List;
  */
 public class Repertoire extends Fichier {
     private List<Fichier> fichiers = new ArrayList<>();
+    
+    public Repertoire() {
+        
+    }
+    
+    public Repertoire(String nom, Repertoire repertoireParent) {
+        super(nom, repertoireParent);
+    }
 
     @Override
     public int getTaille() {
@@ -20,8 +28,11 @@ public class Repertoire extends Fichier {
         for (Fichier fichier : fichiers) {
             taille += fichier.getTaille();
         }
-        return taille;
+        return taille;                                                          
     }
     
+    public List<Fichier> getFichier() {
+        return this.fichiers;
+    }
     
 }

@@ -5,7 +5,9 @@
 package gestion.fichier;
 
 import gestion.fichier.cli.Commande;
+import gestion.fichier.cli.Navigateur;
 import gestion.fichier.cli.ParseurCommande;
+import gestion.fichier.metier.Repertoire;
 import java.util.Scanner;
 
 /**
@@ -23,7 +25,13 @@ public class Main {
         // TODO code application logic here
         System.out.println("\nBonjour TinosTechnology ");
         System.out.print("\nTaper votre commande : ");
+        Repertoire root = new Repertoire("/", null);
+        Navigateur.getInstance().setRepertoireCourant(root);
         while (true) {
+            String chemin = "tinos@hp:~"
+                    + Navigateur.getInstance().getRepertoireCourant().getNomComplet()
+                    + "$ ";
+            System.out.print(chemin);
             String strCmde = clavier.nextLine();
             Commande commande = parseur.parser(strCmde);
             commande.executer();

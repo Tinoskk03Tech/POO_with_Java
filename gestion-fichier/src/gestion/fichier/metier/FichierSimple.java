@@ -10,6 +10,14 @@ package gestion.fichier.metier;
  */
 public class FichierSimple extends Fichier {
     private String donnee;
+    
+    public FichierSimple() {
+        
+    }
+    
+    public FichierSimple(String nom, Repertoire repertoireParent) {
+        super(nom, repertoireParent);
+    }
 
     @Override
     public int getTaille() {

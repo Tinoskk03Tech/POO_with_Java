@@ -15,6 +15,22 @@ public abstract class Fichier {
     private String nom;
     private Repertoire repertoireParent;
     
+    public Fichier() {
+        this.dateCreation = LocalDateTime.now();
+    }
+    
+    public Fichier(String nom) {
+        this();
+        this.nom = nom;
+    }
+    
+    public Fichier(String nom, Repertoire repertoireParent) {
+        this(nom);
+        this.repertoireParent = repertoireParent;
+        if (repertoireParent != null) {
+            this.repertoireParent.getFichier().add(this);
+        }
+    }
     
     public abstract int getTaille();
     public String getNomComplet() {
