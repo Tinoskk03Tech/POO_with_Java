@@ -21,6 +21,20 @@ public class Repertoire extends Fichier {
     public Repertoire(String nom, Repertoire repertoireParent) {
         super(nom, repertoireParent);
     }
+    
+    public void ajouterRepertoire(String nom) {
+        new Repertoire(nom, this);
+    }
+    
+    public void ajouterFichierSimple(String nom) {
+        new FichierSimple(nom, this);
+    }
+    
+    public void afficherContenu() {
+        for (Fichier fichier : fichiers) {
+            System.out.print(fichier.getNom() + "\t");
+        }
+    }
 
     @Override
     public int getTaille() {

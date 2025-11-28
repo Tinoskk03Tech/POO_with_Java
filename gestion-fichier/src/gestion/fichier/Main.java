@@ -24,7 +24,7 @@ public class Main {
     public static void main(String[] args) {
         // TODO code application logic here
         System.out.println("\nBonjour TinosTechnology ");
-        System.out.print("\nTaper votre commande : ");
+        System.out.println("\nTaper votre commande : ");
         Repertoire root = new Repertoire("/", null);
         Navigateur.getInstance().setRepertoireCourant(root);
         while (true) {

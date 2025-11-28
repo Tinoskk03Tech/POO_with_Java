@@ -39,4 +39,8 @@ public abstract class Fichier {
         }
         return repertoireParent.getNomComplet() + "/" + this.nom;
     }
+    
+    public String getNom() {
+        return this.nom;
+    }
 }

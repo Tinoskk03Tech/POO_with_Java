@@ -22,6 +22,15 @@ public class ParseurCommande {
             case "HELP" :
                 commande = new CmAide();
                 break;
+            case "MKDIR" :
+                commande = new CmMKDIR();
+                break;
+            case "TOUCH" :
+                commande = new CmTouch();
+                break;
+            case "LS" :
+                commande = new CmLS();
+                break;
             default :
                 commande = new CmInconnue();
         }
