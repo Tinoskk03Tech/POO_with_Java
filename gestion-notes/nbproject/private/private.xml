@@ -5,6 +5,7 @@
         <group>
             <file>file:/home/tkossi/Documents/POO_with_Java/gestion-notes/src/gestion/notes/Main.java</file>
             <file>file:/home/tkossi/Documents/POO_with_Java/gestion-notes/src/metier/Etudiant.java</file>
+            <file>file:/home/tkossi/Documents/POO_with_Java/gestion-notes/src/cli/CmEtudiantAfficher.java</file>
             <file>file:/home/tkossi/Documents/POO_with_Java/gestion-notes/src/metier/Parcours.java</file>
             <file>file:/home/tkossi/Documents/POO_with_Java/gestion-notes/src/metier/Etablissement.java</file>
             <file>file:/home/tkossi/Documents/POO_with_Java/gestion-notes/src/metier/UniteEnseignement.java</file>
@@ -16,6 +17,11 @@
             <file>file:/home/tkossi/Documents/POO_with_Java/gestion-notes/src/cli/CmAide.java</file>
             <file>file:/home/tkossi/Documents/POO_with_Java/gestion-notes/src/cli/CmInconnue.java</file>
             <file>file:/home/tkossi/Documents/POO_with_Java/gestion-notes/src/cli/CmListerEtudiantsParcours.java</file>
+            <file>file:/home/tkossi/Documents/POO_with_Java/gestion-notes/src/cli/CmEtudiantModifier.java</file>
+            <file>file:/home/tkossi/Documents/POO_with_Java/gestion-notes/src/cli/CmParcoursModifier.java</file>
+            <file>file:/home/tkossi/Documents/POO_with_Java/gestion-notes/src/cli/CmParcoursSupprimer.java</file>
+            <file>file:/home/tkossi/Documents/POO_with_Java/gestion-notes/src/cli/CmEtudiantSupprimer.java</file>
+            <file>file:/home/tkossi/Documents/POO_with_Java/gestion-notes/src/cli/CmEtudiantCreer.java</file>
         </group>
     </open-files>
 </project-private>

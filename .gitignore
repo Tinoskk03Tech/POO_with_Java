@@ -2,3 +2,7 @@ ssh
 ssh.pub
 /gestion-notes/build/
 /gestion-notes/dist/
+/gestion-exception/nbproject/private/
+/gestion-exception/build/
+/gestion-fichier/nbproject/private/
+/gestion-fichier/build/

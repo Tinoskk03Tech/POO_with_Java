@@ -14,9 +14,6 @@ public class CmEtudiantSupprimer extends Commande {
 
     @Override
     public void executer() {
-        if (this.numeroCarte == 0) {
-            return;
-        }
         Etudiant.supprimer(this.numeroCarte);
     }
 

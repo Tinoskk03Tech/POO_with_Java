@@ -21,7 +21,7 @@ public class CmEtudiantModifier extends Commande {
     public void executer() {
         Etudiant e = Etudiant.getByNumeroCarte(this.numeroCarte);
         if (e == null) {
-            return;
+            return ;
         }
         if (this.nom != null){
             e.setNom(this.nom);
@@ -36,9 +36,6 @@ public class CmEtudiantModifier extends Commande {
 
     @Override
     public void setPararmetres(String[] parametres) {
-        if (parametres == null || parametres.length < 4) {
-            return;
-        }
         this.numeroCarte = Integer.parseInt(parametres[0]);
         this.nom = parametres[1];
         this.prenom = parametres[2];
