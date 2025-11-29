@@ -32,7 +32,12 @@ public class Main {
         System.out.println("\nBonjour TinosTechnology ");
         System.out.print("\nTaper votre commande : ");
         while (true) {
+            String chemin = "\nTinosTechnologie@tinosSystem:~"
+                    + "Gestionnaire d'inscription \n"
+                    + "~~$ ";
+            System.out.print(chemin);
             String strCmde = clavier.nextLine();
+            System.out.println("");
             Commande commande = parseur.parser(strCmde);
             commande.executer();
         }

@@ -32,7 +32,7 @@ public class Repertoire extends Fichier {
     
     public void afficherContenu() {
         for (Fichier fichier : fichiers) {
-            System.out.print(fichier.getNom() + "\t");
+            System.out.print(fichier.getNom() + "/" + "\t");
         }
     }
 
