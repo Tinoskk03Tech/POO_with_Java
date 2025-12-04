@@ -6,3 +6,7 @@ ssh.pub
 /gestion-exception/build/
 /gestion-fichier/nbproject/private/
 /gestion-fichier/build/
+/gestion-fichier/dist/
+/serialisation/nbproject/private/
+/serialisation/build/
+/serialisation/dist/

@@ -4,6 +4,7 @@
  */
 package gestion.fichier.cli;
 
+import gestion.fichier.metier.Fichier;
 import java.util.Scanner;
 
 /**
@@ -18,6 +19,11 @@ public class CmQuitter extends Commande {
         System.out.print("\nQuitter le programme ? [o/N] : ");
         String reponse = clavier.next().toUpperCase();
         if (reponse.equals("O")){
+            try {
+                Fichier.sauvegarder();
+            } catch(Exception e) {
+                e.printStackTrace();
+            }
             System.out.println("\nA bientot");
             System.exit(0);
         }

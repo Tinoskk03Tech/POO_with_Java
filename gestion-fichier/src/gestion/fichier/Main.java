@@ -7,7 +7,12 @@ package gestion.fichier;
 import gestion.fichier.cli.Commande;
 import gestion.fichier.cli.Navigateur;
 import gestion.fichier.cli.ParseurCommande;
+import gestion.fichier.metier.Fichier;
 import gestion.fichier.metier.Repertoire;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Scanner;
 
 /**
@@ -15,6 +20,7 @@ import java.util.Scanner;
  * @author tkossi
  */
 public class Main {
+
     private static Scanner clavier = new Scanner(System.in);
     private static ParseurCommande parseur = new ParseurCommande();
 
@@ -25,8 +31,12 @@ public class Main {
         // TODO code application logic here
         System.out.println("\nBonjour TinosTechnology ");
         System.out.println("\nTaper votre commande : ");
-        Repertoire root = new Repertoire("/", null);
-        Navigateur.getInstance().setRepertoireCourant(root);
+        try {
+            Fichier.restaurer();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        Navigateur.getInstance().setRepertoireCourant(Fichier.getRoot());
         while (true) {
             String chemin = "tinos@hp:~"
                     + Navigateur.getInstance().getRepertoireCourant().getNomComplet()
@@ -37,5 +47,5 @@ public class Main {
             commande.executer();
         }
     }
-    
+
 }

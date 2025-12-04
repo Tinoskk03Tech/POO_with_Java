@@ -4,13 +4,22 @@
  */
 package gestion.fichier.metier;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
  *
  * @author tkossi
  */
-public abstract class Fichier {
+public abstract class Fichier implements Serializable {
+    private static Repertoire root = new Repertoire("/", null);
+    public static final String chemin = "C:\\Users\\Kossivi Tinè KOSSI\\Documents\\serialisation\\gestion_fichier.ser";
     private LocalDateTime dateCreation;
     private String nom;
     private Repertoire repertoireParent;
@@ -30,6 +39,31 @@ public abstract class Fichier {
         if (repertoireParent != null) {
             this.repertoireParent.getFichier().add(this);
         }
+    }
+    
+    public static void sauvegarder() throws Exception {
+        FileOutputStream fichier = new FileOutputStream(Fichier.chemin);
+        ObjectOutputStream objectOutputStream = new ObjectOutputStream(fichier);
+        objectOutputStream.writeObject(root);
+        objectOutputStream.flush();
+    }
+    
+    public static void restaurer() {
+        try {
+            FileInputStream fichier = new FileInputStream(Fichier.chemin);
+            ObjectInputStream objectInputStream = new ObjectInputStream(fichier);
+            root = (Repertoire) objectInputStream.readObject();
+        } catch (FileNotFoundException e) {
+            
+        } catch (IOException e) {
+            
+        } catch (ClassNotFoundException e) {
+            
+        }
+    }
+    
+    public static Repertoire getRoot() {
+        return root;
     }
     
     public abstract int getTaille();
