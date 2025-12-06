@@ -31,6 +31,15 @@ public class ParseurCommande {
             case "LS" :
                 commande = new CmLS();
                 break;
+            case "EXISTEF" :
+                commande = new CmExisteFichier();
+                break;
+            case "EXISTER" :
+                commande = new CmExisteRepertoire();
+                break;
+            case "CD" :
+                commande = new CmCD();
+                break;
             default :
                 commande = new CmInconnue();
         }

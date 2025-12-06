@@ -38,7 +38,7 @@ public class Main {
         }
         Navigateur.getInstance().setRepertoireCourant(Fichier.getRoot());
         while (true) {
-            String chemin = "tinos@hp:~"
+            String chemin = "tinos@lenovo:~"
                     + Navigateur.getInstance().getRepertoireCourant().getNomComplet()
                     + "$ ";
             System.out.print(chemin);

@@ -6,17 +6,17 @@ package gestion.fichier.cli;
 
 /**
  *
- * @author tkossi
+ * @author Kossivi Tinè KOSSI
  */
-public class CmMKDIR extends Commande {
+public class CmExisteRepertoire extends Commande {
     private String nom;
-
+    
     @Override
     public void executer() {
-        if (!Navigateur.getInstance().getRepertoireCourant().existeRepertoire(nom)) {
-            Navigateur.getInstance().getRepertoireCourant().ajouterRepertoire(nom);
+        if (Navigateur.getInstance().getRepertoireCourant().existeRepertoire(nom)) {
+            System.out.println("Le repertoire " + this.nom + " existe");
         } else {
-            System.out.println("Le repertoire existe déjà.");
+            System.out.println("Le repertoire " + this.nom + " n'existe pas");
         }
     }
 
@@ -24,5 +24,4 @@ public class CmMKDIR extends Commande {
     public void setPararmetres(String[] parametres) {
         this.nom = parametres[0];
     }
-     
 }

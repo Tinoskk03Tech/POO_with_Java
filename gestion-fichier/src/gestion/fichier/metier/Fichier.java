@@ -10,6 +10,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -18,7 +19,9 @@ import java.time.LocalDateTime;
  * @author tkossi
  */
 public abstract class Fichier implements Serializable {
-    private static Repertoire root = new Repertoire("/", null);
+    @Serial
+    private static final long serialVersionUID = 15624876235145L;
+    private static Repertoire root = new Repertoire("", null);
     public static final String chemin = "C:\\Users\\Kossivi Tinè KOSSI\\Documents\\serialisation\\gestion_fichier.ser";
     private LocalDateTime dateCreation;
     private String nom;
@@ -67,6 +70,9 @@ public abstract class Fichier implements Serializable {
     }
     
     public abstract int getTaille();
+    
+    public abstract boolean estRepertoire();
+    
     public String getNomComplet() {
         if (repertoireParent == null) {
             return this.nom;
@@ -76,5 +82,9 @@ public abstract class Fichier implements Serializable {
     
     public String getNom() {
         return this.nom;
+    }
+    
+    public Repertoire getRepertoireParent() {
+        return this.repertoireParent;
     }
 }

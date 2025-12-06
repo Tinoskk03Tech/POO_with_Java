@@ -4,11 +4,15 @@
  */
 package gestion.fichier.metier;
 
+import java.io.Serial;
+
 /**
  *
  * @author tkossi
  */
 public class FichierSimple extends Fichier {
+    @Serial
+    private static final long serialVersionUID = 26574876235145L;
     private String donnee;
     
     public FichierSimple() {
@@ -24,5 +28,9 @@ public class FichierSimple extends Fichier {
         return donnee.length();
     }
     
+    @Override
+    public boolean estRepertoire() {
+        return false;
+    }
     
 }

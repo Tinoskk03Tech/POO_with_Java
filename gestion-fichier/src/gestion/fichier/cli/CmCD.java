@@ -4,19 +4,22 @@
  */
 package gestion.fichier.cli;
 
+import gestion.fichier.metier.Repertoire;
+import java.io.FileNotFoundException;
+
 /**
  *
- * @author tkossi
+ * @author Kossivi Tinè KOSSI
  */
-public class CmMKDIR extends Commande {
+public class CmCD extends Commande {
     private String nom;
-
+    
     @Override
     public void executer() {
-        if (!Navigateur.getInstance().getRepertoireCourant().existeRepertoire(nom)) {
-            Navigateur.getInstance().getRepertoireCourant().ajouterRepertoire(nom);
-        } else {
-            System.out.println("Le repertoire existe déjà.");
+        try {
+            Navigateur.getInstance().changerRepertoire(nom);
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
         }
     }
 
@@ -24,5 +27,4 @@ public class CmMKDIR extends Commande {
     public void setPararmetres(String[] parametres) {
         this.nom = parametres[0];
     }
-     
 }
