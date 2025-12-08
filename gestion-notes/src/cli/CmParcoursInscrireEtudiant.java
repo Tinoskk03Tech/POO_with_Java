@@ -23,7 +23,7 @@ public class CmParcoursInscrireEtudiant extends Commande {
     }
 
     @Override
-    public void setPararmetres(String[] parametres) {
+    public void setParametres(String[] parametres) {
         this.libelle = parametres[0];
         this.numeroCarte = Integer.parseInt(parametres[1]);
     }

@@ -32,7 +32,7 @@ public class CmListerEtudiantsParcours extends Commande {
     }
 
     @Override
-    public void setPararmetres(String[] parametres) {
+    public void setParametres(String[] parametres) {
         try {
             this.indice = Integer.parseInt(parametres[0]);
         } catch (NumberFormatException ex) {

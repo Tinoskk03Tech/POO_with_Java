@@ -30,7 +30,7 @@ public class CmQuitter extends Commande {
     }
 
     @Override
-    public void setPararmetres(String[] parametres) {
+    public void setParametres(String[] parametres) {
         
     }
     

@@ -59,4 +59,11 @@ public class Navigateur {
             this.repertoireCourant = this.repertoireCourant.getRepertoire(nomRepertoire);
         }
     }
+
+    public Repertoire getRepertoireParNom(String nom) throws FileNotFoundException {
+        if (this.repertoireCourant.existeRepertoire(nom)) {
+            return this.repertoireCourant.getRepertoire(nom);
+        }
+        throw new FileNotFoundException("Répertoire '" + nom + "' non trouvé dans " + this.repertoireCourant.getNomComplet());
+    }
 }

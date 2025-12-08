@@ -40,6 +40,13 @@ public class Repertoire extends Fichier {
         }
     }
 
+    public void afficherContenuR(Repertoire getRepertoire) {
+        List<Fichier> fichiers = getRepertoire.getFichier();
+        for (Fichier fichier : fichiers) {
+            System.out.print(fichier.getNom() + "\t");
+        }
+    }
+
     @Override
     public int getTaille() {
         int taille = 0;

@@ -35,7 +35,7 @@ public class CmEtudiantModifier extends Commande {
     }
 
     @Override
-    public void setPararmetres(String[] parametres) {
+    public void setParametres(String[] parametres) {
         this.numeroCarte = Integer.parseInt(parametres[0]);
         this.nom = parametres[1];
         this.prenom = parametres[2];

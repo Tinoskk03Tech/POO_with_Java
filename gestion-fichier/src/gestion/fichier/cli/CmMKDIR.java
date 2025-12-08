@@ -21,7 +21,7 @@ public class CmMKDIR extends Commande {
     }
 
     @Override
-    public void setPararmetres(String[] parametres) {
+    public void setParametres(String[] parametres) {
         this.nom = parametres[0];
     }
      

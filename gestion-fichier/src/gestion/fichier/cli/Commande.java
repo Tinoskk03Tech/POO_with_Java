@@ -10,5 +10,5 @@ package gestion.fichier.cli;
  */
 public abstract class Commande {
     public abstract void executer();
-    public abstract void setPararmetres(String[] parametres);
+    public abstract void setParametres(String[] parametres);
 }

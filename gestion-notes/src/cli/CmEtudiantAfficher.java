@@ -23,7 +23,7 @@ public class CmEtudiantAfficher extends Commande {
     }
 
     @Override
-    public void setPararmetres(String[] parametres) {
+    public void setParametres(String[] parametres) {
         this.indice = Integer.parseInt(parametres[0]);
     }
     

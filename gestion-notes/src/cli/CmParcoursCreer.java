@@ -23,7 +23,7 @@ public class CmParcoursCreer extends Commande {
     }
 
     @Override
-    public void setPararmetres(String[] parametres) {
+    public void setParametres(String[] parametres) {
         this.libelle = parametres[0];
     }
     

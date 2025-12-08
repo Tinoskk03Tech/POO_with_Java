@@ -45,7 +45,7 @@ public class ParseurCommande {
         }
         if (tbCmd.length > 1){
             String[] parametres = Arrays.copyOfRange(tbCmd, 1, tbCmd.length);
-            commande.setPararmetres(parametres);
+            commande.setParametres(parametres);
         }
         return commande;
     }

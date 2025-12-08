@@ -16,7 +16,7 @@ public class CmParcoursSupprimer extends Commande {
     }
 
     @Override
-    public void setPararmetres(String[] parametres) {
+    public void setParametres(String[] parametres) {
         
     }
     

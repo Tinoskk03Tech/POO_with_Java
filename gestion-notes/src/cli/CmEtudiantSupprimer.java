@@ -18,7 +18,7 @@ public class CmEtudiantSupprimer extends Commande {
     }
 
     @Override
-    public void setPararmetres(String[] parametres) {
+    public void setParametres(String[] parametres) {
         if (parametres != null && parametres.length > 0) {
             this.numeroCarte = Integer.parseInt(parametres[0]);
         }
