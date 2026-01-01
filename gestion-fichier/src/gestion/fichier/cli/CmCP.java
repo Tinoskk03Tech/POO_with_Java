@@ -4,27 +4,33 @@
  */
 package gestion.fichier.cli;
 
-import gestion.fichier.metier.Repertoire;
 import java.io.FileNotFoundException;
 
 /**
  *
  * @author Kossivi Tinè KOSSI
  */
-public class CmCD extends Commande {
-    private String nom;
-    
+public class CmCP extends Commande {
+    private String source;
+    private String destination;
+
     @Override
     public void executer() {
         try {
-            Navigateur.getInstance().changerRepertoire(nom);
+            Navigateur.getInstance().copier_deplacerFichier(source, destination, true);
         } catch (FileNotFoundException e) {
-            System.out.println("Erreur  : " + e.getMessage());
+            System.out.println("Erreur : " + e.getMessage());
         }
     }
 
     @Override
     public void setParametres(String[] parametres) {
-        this.nom = parametres[0];
+        if(parametres.length >= 2){
+            this.source = parametres[0];
+            this.destination = parametres[1];
+        } else {
+            this.source = parametres[0];
+        }
     }
+    
 }

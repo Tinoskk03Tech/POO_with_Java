@@ -17,7 +17,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author tkossi
+ * @author Kossivi Tinè KOSSI
  */
 public class Main {
 

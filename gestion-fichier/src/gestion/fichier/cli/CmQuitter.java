@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author tkossi
+ * @author Kossivi Tinè KOSSI
  */
 public class CmQuitter extends Commande {
 
@@ -22,7 +22,7 @@ public class CmQuitter extends Commande {
             try {
                 Fichier.sauvegarder();
             } catch(Exception e) {
-                e.printStackTrace();
+                
             }
             System.out.println("\nA bientot");
             System.exit(0);

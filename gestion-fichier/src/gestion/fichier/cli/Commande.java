@@ -6,7 +6,7 @@ package gestion.fichier.cli;
 
 /**
  *
- * @author tkossi
+ * @author Kossivi Tinè KOSSI
  */
 public abstract class Commande {
     public abstract void executer();

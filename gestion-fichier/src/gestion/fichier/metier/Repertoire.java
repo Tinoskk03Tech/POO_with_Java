@@ -6,12 +6,13 @@ package gestion.fichier.metier;
 
 import java.io.FileNotFoundException;
 import java.io.Serial;
+import java.nio.file.FileAlreadyExistsException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  *
- * @author tkossi
+ * @author Kossivi Tinè KOSSI
  */
 public class Repertoire extends Fichier {
     @Serial
@@ -41,8 +42,8 @@ public class Repertoire extends Fichier {
     }
 
     public void afficherContenuR(Repertoire getRepertoire) {
-        List<Fichier> fichiers = getRepertoire.getFichier();
-        for (Fichier fichier : fichiers) {
+        List<Fichier> fichierss = getRepertoire.getFichier();
+        for (Fichier fichier : fichierss) {
             System.out.print(fichier.getNom() + "\t");
         }
     }
@@ -72,7 +73,7 @@ public class Repertoire extends Fichier {
         }
         return false;
     }
-    
+
     public boolean existeRepertoire(String nom) {
         if (nom == null) {
             return false;
@@ -85,17 +86,42 @@ public class Repertoire extends Fichier {
         return false;
     }
     
+    public void existeDeja(String nom) throws FileAlreadyExistsException {
+        if (this.existeFichierSimple(nom) || this.existeRepertoire(nom)) {
+            throw new FileAlreadyExistsException("Le fichier ou repertoire '" + nom + "' existe deja dans '" + this.getNomComplet() + "'");
+        }
+    }
+    
+    public void nExiste(String nom) throws FileAlreadyExistsException {
+        if (!this.existeRepertoire(nom) && !this.existeFichierSimple(nom)) {
+            throw new FileAlreadyExistsException("Le fichier ou repertoire '" + nom + "' n'existe pas dans '" + this.getNomComplet() + "'");
+        }
+    }
+    
     public Repertoire getRepertoire(String nom) throws FileNotFoundException {
         for(Fichier f : fichiers) {
             if(f.estRepertoire() && f.getNom().equals(nom)) {
                 return (Repertoire) f;
             }
         }
-        throw new FileNotFoundException("Repertoire '" + nom + "' non trouvé");
+        throw new FileNotFoundException("Repertoire '" + nom + "' non trouve dans '" + this.getNomComplet() + "'");
     }
     
     public List<Fichier> getFichier() {
         return this.fichiers;
     }
     
+    public Fichier getFichierParNom(String nom) {
+        if (nom == null) return null;
+        for (Fichier f : fichiers) {
+            if (f.getNom().equals(nom)) {
+                return f;
+            }
+        }
+        return null;
+    }
+    
+    public void supprimerFichier(String nom) {
+        fichiers.removeIf(f -> f.getNom().equals(nom));
+    }
 }

@@ -4,19 +4,24 @@
  */
 package gestion.fichier.cli;
 
+import gestion.fichier.metier.Repertoire;
+import java.nio.file.FileAlreadyExistsException;
+
 /**
  *
- * @author tkossi
+ * @author Kossivi Tinè KOSSI
  */
 public class CmMKDIR extends Commande {
     private String nom;
 
     @Override
     public void executer() {
-        if (!Navigateur.getInstance().getRepertoireCourant().existeRepertoire(nom)) {
+        Repertoire repertoireCourant = Navigateur.getInstance().getRepertoireCourant();
+        try {
+            repertoireCourant.existeDeja(nom);
             Navigateur.getInstance().getRepertoireCourant().ajouterRepertoire(nom);
-        } else {
-            System.out.println("Le repertoire existe déjà.");
+        } catch (FileAlreadyExistsException ex) {
+            System.out.println("Erreur : " + ex.getMessage());
         }
     }
 

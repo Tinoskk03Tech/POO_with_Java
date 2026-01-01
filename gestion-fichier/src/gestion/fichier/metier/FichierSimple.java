@@ -8,12 +8,12 @@ import java.io.Serial;
 
 /**
  *
- * @author tkossi
+ * @author Kossivi Tinè KOSSI
  */
 public class FichierSimple extends Fichier {
     @Serial
     private static final long serialVersionUID = 26574876235145L;
-    private String donnee;
+    private String donnee = "";
     
     public FichierSimple() {
         
@@ -31,6 +31,14 @@ public class FichierSimple extends Fichier {
     @Override
     public boolean estRepertoire() {
         return false;
+    }
+    
+    public String getContenu() {
+        return donnee;
+    }
+    
+    public void setContenu(String contenu) {
+        this.donnee = contenu;
     }
     
 }

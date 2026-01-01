@@ -13,6 +13,7 @@ public class CmExisteRepertoire extends Commande {
     
     @Override
     public void executer() {
+        
         if (Navigateur.getInstance().getRepertoireCourant().existeRepertoire(nom)) {
             System.out.println("Le repertoire " + this.nom + " existe");
         } else {

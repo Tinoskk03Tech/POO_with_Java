@@ -16,12 +16,12 @@ import java.time.LocalDateTime;
 
 /**
  *
- * @author tkossi
+ * @author Kossivi Tinè KOSSI
  */
 public abstract class Fichier implements Serializable {
     @Serial
     private static final long serialVersionUID = 15624876235145L;
-    private static Repertoire root = new Repertoire("", null);
+    private static Repertoire root = new Repertoire("Root", null);
     public static final String chemin = "C:\\Users\\Kossivi Tinè KOSSI\\Documents\\serialisation\\gestion_fichier.ser";
     private LocalDateTime dateCreation;
     private String nom;
@@ -57,7 +57,7 @@ public abstract class Fichier implements Serializable {
             ObjectInputStream objectInputStream = new ObjectInputStream(fichier);
             root = (Repertoire) objectInputStream.readObject();
         } catch (FileNotFoundException e) {
-            
+            root = new Repertoire("Root", null);
         } catch (IOException e) {
             
         } catch (ClassNotFoundException e) {
@@ -74,17 +74,38 @@ public abstract class Fichier implements Serializable {
     public abstract boolean estRepertoire();
     
     public String getNomComplet() {
-        if (repertoireParent == null) {
-            return this.nom;
+        if (this.getRepertoireParent() == null) {
+            return this.getNom();
         }
-        return repertoireParent.getNomComplet() + "/" + this.nom;
+        return this.getRepertoireParent().getNomComplet() + "/" + this.nom;
     }
     
     public String getNom() {
         return this.nom;
     }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
     
     public Repertoire getRepertoireParent() {
         return this.repertoireParent;
     }
+    
+    public void copierFichier(FichierSimple src, String destNom) {
+        FichierSimple fCopie = new FichierSimple(destNom, (Repertoire) this);
+        fCopie.setContenu(src.getContenu());
+    }
+
+    public void copierRepertoire(Repertoire src, String destNom) {
+        Repertoire nouveauRep = new Repertoire(destNom, (Repertoire) this);
+        for (Fichier f : src.getFichier()) {
+            if (f.estRepertoire()) {
+                nouveauRep.copierRepertoire((Repertoire) f, f.getNom());
+            } else {
+                nouveauRep.copierFichier((FichierSimple) f, f.getNom());
+            }
+        }
+    }
+    
 }

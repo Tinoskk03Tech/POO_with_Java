@@ -4,8 +4,6 @@
  */
 package gestion.fichier.cli;
 
-import gestion.fichier.metier.Repertoire;
-
 /**
  *
  * @author Kossivi Tinè KOSSI

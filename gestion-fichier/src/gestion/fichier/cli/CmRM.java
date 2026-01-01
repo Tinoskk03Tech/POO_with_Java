@@ -4,27 +4,36 @@
  */
 package gestion.fichier.cli;
 
-import gestion.fichier.metier.Repertoire;
 import java.io.FileNotFoundException;
 
 /**
  *
  * @author Kossivi Tinè KOSSI
  */
-public class CmCD extends Commande {
-    private String nom;
-    
+public class CmRM extends Commande {
+    private String cible;
+
     @Override
     public void executer() {
+
         try {
-            Navigateur.getInstance().changerRepertoire(nom);
+            if (cible == null) {
+              System.out.println("Vous devriez preciser le fichier supprimer");
+              return;
+            } 
+            Navigateur.getInstance().suppressionFichier(cible);
         } catch (FileNotFoundException e) {
-            System.out.println("Erreur  : " + e.getMessage());
+            System.out.println(e.getMessage());
+        } catch (Exception e) {
+
         }
     }
 
     @Override
     public void setParametres(String[] parametres) {
-        this.nom = parametres[0];
+        if (parametres.length >= 1) {
+            this.cible = parametres[0];
+        }
     }
+    
 }

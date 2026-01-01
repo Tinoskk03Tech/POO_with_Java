@@ -8,7 +8,7 @@ import java.util.Arrays;
 
 /**
  *
- * @author tkossi
+ * @author Kossivi Tinè KOSSI
  */
 public class ParseurCommande {
     public Commande parser(String strCommande) {
@@ -39,6 +39,15 @@ public class ParseurCommande {
                 break;
             case "CD" :
                 commande = new CmCD();
+                break;
+            case "CP" :
+                commande = new CmCP();
+                break;
+            case "MV" :
+                commande = new CmMV();
+                break;
+            case "RM" :
+                commande = new CmRM();
                 break;
             default :
                 commande = new CmInconnue();
