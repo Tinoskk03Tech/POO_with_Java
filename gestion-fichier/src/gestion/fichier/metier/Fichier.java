@@ -22,7 +22,7 @@ public abstract class Fichier implements Serializable {
     @Serial
     private static final long serialVersionUID = 15624876235145L;
     private static Repertoire root = new Repertoire("Root", null);
-    public static final String chemin = "/home/tkossi/MEGA/serialisation/gestion_fichier.ser";
+    public static final String chemin = "c:\\Users\\Kossivi Tinè KOSSI\\Documents\\MEGA\\serialisation\\gestion_fichier.ser";
     private LocalDateTime dateCreation;
     private String nom;
     private Repertoire repertoireParent;

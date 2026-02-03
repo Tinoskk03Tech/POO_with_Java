@@ -71,7 +71,8 @@ public class Navigateur {
         throw new FileNotFoundException("Répertoire '" + nom + "' non trouvé dans '" + this.repertoireCourant.getNomComplet() + "'");
     }
 
-    public void lsChemin(String nom) throws FileAlreadyExistsException {
+    public void lsChemin(String nom) throws FileAlreadyExistsException { // Vérification si le fichier est simple
+
         try {
             String[] cheminCible = nom.split("/");
             String fichierCible = cheminCible[cheminCible.length - 1];
@@ -88,6 +89,11 @@ public class Navigateur {
                     return;
                 } else if (!repertoireCourant.existeFichierSimple(fichierCible) && !repertoireCourant.existeRepertoire(fichierCible)) {
                     System.out.println("Erreur : '" + fichierCible + "' non trouve dans '" + repertoireCibles.getNomComplet() + "'");
+                    this.setRepertoireCourant(repCourant);
+                    return;
+                }
+                if (repertoireCibles.existeFichierSimple(fichierCible)) {
+                    System.out.println("Erreur : " + fichierCible + " est un fichier simple dans '" + repertoireCibles.getNomComplet() + "'");
                     this.setRepertoireCourant(repCourant);
                     return;
                 }
@@ -108,8 +114,14 @@ public class Navigateur {
                 System.out.println("Erreur : '" + fichierCible + "' non trouve dans '" + repCourant.getNomComplet() + "'");
                 return;
             } else {
-                Fichier temps = repCourant.getFichierParNom(fichierCible);
-                this.getRepertoireCourant().afficherContenuR((Repertoire) temps);
+                if (repertoireCourant.existeFichierSimple(fichierCible)) {
+                    System.out.println("Erreur : '" + fichierCible + "' n'est pas un répertoire dans '" + repCourant.getNomComplet() + "'");
+                    this.setRepertoireCourant(repCourant);
+                    return;
+                } else {
+                    Fichier temps = repCourant.getFichierParNom(fichierCible);
+                    this.getRepertoireCourant().afficherContenuR((Repertoire) temps);
+                }
             }
             System.out.println("");
             this.setRepertoireCourant(repCourant);
